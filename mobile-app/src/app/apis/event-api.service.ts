@@ -87,9 +87,9 @@ export class EventApiService {
   }
 
 
-  addReview (review): Observable<Review> {
-    return this.http.post<Review>(endpointUrl, review, httpOptions).pipe(
-      tap((review: Review) => console.log(`added review w/ id=${review.id}`)),
+  addReview (review,id): Observable<Review> {
+    return this.http.post<Review>(`${this.endpointUrl}/feedback/${id}`, review, httpOptions).pipe(
+      tap((review: Review) => console.log(`added review w/ id=${id}`)),
       catchError(this.handleError<Review>('addReview'))
     );
   }

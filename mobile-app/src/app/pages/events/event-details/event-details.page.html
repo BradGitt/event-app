@@ -53,9 +53,32 @@
 
   <hr>
   <h3>Event Reviews</h3>
-  <ion-item button *ngFor=" let rev of reviews" color="light" >
-      <ion-icon name="person"></ion-icon>By:{{rev.email}} | date posted<br>
-    Rating:{{rev.rating}}<br>
+  <h5>Add Review</h5>
+  
+
+  <form [formGroup]="reviewForm" (ngSubmit)="onFormSubmit(reviewForm.value)">
+      <ion-item>
+        <ion-label position="floating">Email Address *</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">rating *</ion-label>
+        <ion-input type="number" formControlName="rating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Comment *</ion-label>
+        <ion-textarea formControlName="comment"></ion-textarea>
+      </ion-item>
+      <ion-button type="submit" shape="round" color="primary" expand="block" [disabled]="!reviewForm.valid">Post Review</ion-button>
+    </form>
+
+    <br>
+  <ion-item *ngFor=" let rev of reviews" color="light" >
+      <ion-icon name="person"></ion-icon>By:{{rev.email}}<br>
+       date posted<br>
+       Rating:{{rev.rating}}
+    
+    <br>
     {{rev.comment}}<br>
     
     
