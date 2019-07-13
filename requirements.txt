@@ -1,0 +1,23 @@
+Updated runapp.py
+
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+pip install flask -U flask-cors
+
+
+
+> in app.module.ts
+
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
+ providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+	NativeStorage
+  ],
+  
+  ****Add native storage to the providers
