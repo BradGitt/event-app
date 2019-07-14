@@ -21,3 +21,34 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   ],
   
   ****Add native storage to the providers
+  
+  
+  npm install ng6-toastr-notifications --save
+  npm install --save @angular/animations
+  
+ >commit app.module.ts
+>app.components
+
+npm install --save @ionic/storage
+
+
+
+> INORDER FOR PAGE TO CHECK FOR TOKEN in the .ts of the page
+import { NavController } from '@ionic/angular';
+
+INSERT
+
+constructor(private myApiService: MyApiService,
+	private navCtrl: NavController) {}
+	
+	ngOnInit() {
+		this.myApiService.getToken();
+	}
+	
+	
+> TO DO A LOG OUT in the .ts of the page
+logout(){
+	  this.myApiService.logout();
+	  //put the appropriate page to navigate to
+	  this.navCtrl.navigateRoot('/login');
+	}
