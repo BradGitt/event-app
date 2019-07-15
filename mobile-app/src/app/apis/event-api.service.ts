@@ -26,7 +26,7 @@ const httpOptions = {
 export class EventApiService {
   //endpointUrl = "http://172.16.208.82:5000/events"; // <<--Your URL goes here
   endpointUrl = "http://127.0.0.1:5000/events"; // <<--Your URL goes here
-  //endpoint = "http://127.0.0.1:5000/events/";
+  endpointEvent = "http://127.0.0.1:5000/event";
 
   //initialize constructor with class variable above
   constructor(private http: HttpClient) { }
@@ -71,6 +71,13 @@ export class EventApiService {
   {
     return this.http.post(`${this.endpointUrl}`,data);
   }
+
+  createEvent(event: Event): Observable<any>
+  {
+    const data = JSON.stringify(event)
+    return this.http.post(`${this.endpointEvent}`,data,httpOptions).pipe(tap((newEvent: Event)=>console.log('Event added',data)));
+  }
+
 
   //PUT
   updateEvent(id, event):Observable<any> {

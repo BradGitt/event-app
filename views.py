@@ -532,15 +532,20 @@ def get_one_event(current_user,event_id):
 
 #Question6- Authenticated users can create an event
 @app.route('/event',methods=['POST'])
-@token_required
-def create_event(current_user):  
-	data= request.get_json()
+#@token_required
+def create_event():  
+    data= request.get_json()
 
-	new_event= Event(public_name=str(uuid.uuid4()),title=data['title'], name=data['name'], description=data['description'], category=data['category'], start_date=data['start_date'], end_date= data['end_date'], start_time=data['start_time'], end_time= data['end_time'],cost=data['cost'],venue=data['venue'],visible=False,creator=current_user.id)
-	db.session.add(new_event) 
-	db.session.commit()
 
-	return jsonify({"message": "Event created!"})
+
+
+    new_event= Event(public_name=str(uuid.uuid4()),title=data['title'], name=data['name'], description=data['description'], category=data['category'], start_date=data['start_date'], end_date= data['end_date'], start_time=data['start_time'], end_time= data['end_time'],cost=data['cost'],venue=data['venue'],visible=False,creator=2)
+    db.session.add(new_event) 
+    db.session.commit()
+
+    #print(data)
+
+    return jsonify({"message": "Event created!"})
 
 
  #Question 4

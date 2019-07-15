@@ -27,6 +27,7 @@
     "cordova-android": "^8.0.0",
     "cordova-ios": "^5.0.1",
     "core-js": "^2.5.4",
+    "ionic4-star-rating": "^1.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"

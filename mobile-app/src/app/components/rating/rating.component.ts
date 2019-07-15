@@ -14,11 +14,29 @@
 // }
 
 import { Component, Input, EventEmitter ,Output} from "@angular/core";
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
+import { StarRating } from 'ionic4-star-rating';
+import { EventDetailsPage } from 'src/app/pages/events/event-details/event-details.page';
 @Component({
   selector: "rating",
   templateUrl: "./rating.component.html"
 })
+
+@NgModule({
+  declarations: [ StarRating],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild([{ path: '', component: EventDetailsPage}])
+  ],
+  exports: [ StarRating ]
+}) 
 
 
 
@@ -69,6 +87,10 @@ export class RatingComponent {
     // function is called from the getColor function.
     return index > this.rating;
   }
+  logRatingChange(rating){
+    console.log("changed rating: ",rating);
+    // do your stuff
+}
 
 }
 
