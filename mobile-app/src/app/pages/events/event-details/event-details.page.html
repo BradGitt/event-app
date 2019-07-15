@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ information?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  Event ID is: {{ myId }}
+
+  <ion-card *ngIf="information">
+      <img src= "{{ information.flyer }}" class="info-img">
+        
+      <ion-card-content >
+        <h3>Event Name: {{ information.name }}</h3>
+        <h3>Title: {{ information.title}}</h3>
+        <h3>Start Date: {{ information.start_date }}</h3>
+        <h3>Start Time: {{ information.start_time }}</h3>
+        <h3>End Date: {{ information.end_date }}</h3>
+        <h3>End Time: {{ information.end_time }}</h3>
+        <h3>Cost: {{ information.cost }}</h3>
+        <h3>Venue: {{ information.venue }}</h3>
+      <!-- <ion-button expand="full" (click)="openWebsite()"
+      *ngIf="information.Website && information.Website != 'N/A'">
+      Open Website
+    </ion-button> -->
+
+    <!-- <ion-item *ngFor="let item of information.event ">
+    
+      <ion-label text-wrap>
+          <h2>{{ item.name }}</h2>
+          <h3>{{ item.title}}</h3>
+          <h3>{{ item.start_date }}</h3>
+          <h3>{{ item.start_time }}</h3>
+          <h3>{{ item.end_date }}</h3>
+          <h3>{{ item.end_time }}</h3>
+          <h3>{{ item.cost }}</h3>
+          <h3>{{ item.venue }}</h3>
+      </ion-label>
+      <ion-thumbnail slot="end">
+        <img src="C:/Users/Gawayne/eventManagementSystem/event-app/Flyers/jazz.jpg" class="info-img" *ngIf="item.flyerPath != 'N/A'">
+      </ion-thumbnail>
+      
+    </ion-item> -->
+           
+
+    </ion-card-content>
+  </ion-card>
+
+  <hr>
+  <h3>Event Reviews</h3>
+  <h5>Add Review</h5>
+
+  
+  
+  <form [formGroup]="reviewForm" (ngSubmit)="onFormSubmit(reviewForm.value)">
+      <ion-item>
+        <ion-label position="floating">Email Address *</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">rating *</ion-label>
+        <ion-input type="number" formControlName="rating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Comment *</ion-label>
+        <ion-textarea formControlName="comment"></ion-textarea>
+      </ion-item>
+      <ion-button type="submit" shape="round" color="primary" expand="block" [disabled]="!reviewForm.valid">Post Review</ion-button>
+    </form>
+
+    <br>
+  <ion-item *ngFor=" let rev of reviews" color="light" >
+      <ion-icon name="person"></ion-icon>By:{{rev.email}}<br>
+       date posted<br>
+       Rating:{{rev.rating}}
+    
+    <br>
+    {{rev.comment}}<br>
+    
+    
+    
+  </ion-item>
+
+</ion-content>

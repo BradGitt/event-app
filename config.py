@@ -1,3 +1,3 @@
-
-SQLALCHEMY_DATABASE_URI='sqlite:////Users/admin/Desktop/venv/venv/eventapp/event.db' #change this to where your api is
+#change this to where your api is   
+SQLALCHEMY_DATABASE_URI='sqlite:////Users/Gawayne/eventManagementSystem/event-app/event.db'
 SECRET_KEY='mysecretkey'
