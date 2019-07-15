@@ -51,7 +51,7 @@ export class MyApiService {
 			if (val == null) {
 				console.log("Empty");
 				this.navCtrl.navigateForward('/login');
-				this.toastr.errorToastr('Please Login');
+				this.toastr.errorToastr('UNAUTHORIZED! Please Login');
 			} else {
 				console.log ("still there");
 				

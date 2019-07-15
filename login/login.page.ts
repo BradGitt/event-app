@@ -33,16 +33,17 @@ export class LoginPage {
 		this.myApiService.login(form.value.username, form.value.password).subscribe(
 		data => {
 			console.log(data);
-			if (data.token) {
-				this.storage.set("ACCESS_TOKEN", data.token);
+			if (data['token']) {
+				this.storage.set("ACCESS_TOKEN", data['token']);
+
 			}
 			//add path to events page
 			this.navCtrl.navigateForward('/events');
 			
 			
-			this.storage.get("ACCESS_TOKEN").then((val) => {
-				console.log(val);
-			});
+			//this.storage.get("ACCESS_TOKEN").then((val) => {
+				//console.log(val);
+			//});
 			
 		},
 		error =>

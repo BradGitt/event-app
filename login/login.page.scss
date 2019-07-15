@@ -1,10 +1,41 @@
+app-login {
 
-ion-title {
-	margin-top: 30vh;
-	margin-bottom: 5vh;
 }
 
+$white-color: #fff;
+
+$height100: 100%;
+
+ion-grid {
+    width:100%;
+    height: $height100;
 	
-app-page-login {
-	ion-background-color:#d40707;
+    
 }
+
+ion-row {
+    height: $height100;
+}
+
+ion-col {
+    border: 1px solid #488aff;
+    background: $white-color;
+}
+
+ion-button {
+    font-weight: 300;
+}
+
+@media (min-width: 240px) and (max-width: 768px) {
+    ion-grid {
+        background: $white-color;
+    }
+    ion-col {
+        border: none;
+    }
+}
+
+ion-content{
+	--background: #fff url(../../../assets/loginbg.jpg) no-repeat center center / cover;
+	
+	}
